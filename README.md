@@ -61,6 +61,16 @@ These dotfiles are managed using [GNU Stow](https://www.gnu.org/software/stow/).
 
 **Note**: It is recommended to back up your existing dotfiles before creating symbolic links.
 
+### Handling Overwrites
+
+If you have existing configs, Stow might complain.
+You can back them up first:
+```bash
+mv ~/.zshrc ~/.zshrc.bak
+mv ~/.config/nvim ~/.config/nvim.bak
+```
+Then run Stow again.
+
 ## Configuration Details
 
 ### AeroSpace
