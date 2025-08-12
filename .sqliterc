@@ -1,0 +1,17 @@
+-- get the titles of columns
+.header on
+
+-- see cleaner results
+-- .mode markdown -- markdown tables
+-- .mode column -- older version of sqlite
+.mode box
+
+
+-- see execution time
+.timer off
+
+-- print command along with result (off by default, here for reference)
+.echo off
+
+-- exit on first error
+.bail on

@@ -1,0 +1,47 @@
+# appearance
+background-opacity = 0.80
+background-blur-radius = 10
+macos-titlebar-style = hidden
+quick-terminal-animation-duration = 0
+# theme = jellybeans
+theme = dark:jellybeans,light:flexoki-light
+window-height = 36
+window-width = 143
+macos-option-as-alt = true
+mouse-hide-while-typing = true
+confirm-close-surface = false
+bold-is-bright = true
+command = ~/.config/scripts/ghossty-tmux.sh
+# command = tmux attach || tmux
+
+# font
+font-size = 18
+font-family = JetBrainsMono Nerd Font 
+# font-family = Liga SFMono Nerd Font
+# font-family = MesloLGS Nerd Font Mono
+font-style = Medium
+# font-family = JetBrainsMono NFM Medium
+# font-thicken = true
+# font-family = Maple Mono NF
+# font-family = Mononoki Nerd Font
+font-feature = "calt"
+font-feature = "clig"
+font-feature = "liga"
+font-feature = "ss20"
+font-feature = "cv02"
+font-feature = "cv03"
+font-feature = "cv04"
+font-feature = "cv05"
+font-feature = "cv06"
+font-feature = "cv07"
+font-feature = "cv11"
+font-feature = "cv14"
+font-feature = "cv15"
+font-feature = "cv16"
+font-feature = "cv17"
+
+# keys
+# keybind = global:ctrl+grave_accent=toggle_quick_terminal
+keybind = super+shift+j=write_screen_file:paste
+keybind = super+alt+shift+j=write_screen_file:open
+keybind = shift+enter=text:\n

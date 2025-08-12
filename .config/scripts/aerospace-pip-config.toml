@@ -1,0 +1,9 @@
+# Add this to your ~/.aerospace.toml or ~/.config/aerospace/aerospace.toml
+
+# This callback will run the pip-move-test.sh script whenever you switch between monitors
+# The script will detect this is a monitor change via the --monitor-focus-changed argument
+on-focused-monitor-changed = ['exec-and-forget /Users/m4pro/.config/scripts/pip-move-test.sh --monitor-focus-changed']
+
+# Optional: You can also bind a key to manually run the script for regular PiP management
+# Add this to your [mode.main.binding] section:
+# alt-p = 'exec-and-forget /Users/m4pro/.config/scripts/pip-move-test.sh'
