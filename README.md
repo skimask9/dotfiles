@@ -52,6 +52,11 @@ These dotfiles are managed using [GNU Stow](https://www.gnu.org/software/stow/).
     stow nvim zsh
     ```
 
+    ```bash
+    # Or link everything in the repo
+    stow *
+    ```
+
     To install all configurations, you can `stow` all the packages in this repository.
 
 **Note**: It is recommended to back up your existing dotfiles before creating symbolic links.
