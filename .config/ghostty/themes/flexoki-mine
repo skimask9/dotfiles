@@ -1,0 +1,32 @@
+# name = "flexoki_mine"
+# author = "user"
+
+palette = 0=#100f0f
+palette = 1=#d14d41
+palette = 2=#879a39
+palette = 3=#d0a215
+palette = 4=#4385be
+palette = 5=#8b7ec8
+palette = 6=#3aa99f
+palette = 7=#f2f0e5
+palette = 8=#6f6e69
+palette = 9=#af3029
+palette = 10=#66800b
+palette = 11=#ad8301
+palette = 12=#205ea6
+palette = 13=#5e409d
+palette = 14=#24837b
+palette = 15=#fffcf0
+palette = 16=#da702c
+palette = 17=#ce5d97
+palette = 18=#fffdf5
+palette = 19=#e6e4d9
+palette = 20=#b7b5ac
+palette = 21=#cecdc3
+
+background = #fffcf0
+foreground = #100f0f
+cursor-color = #100f0f
+selection-background = #dad8ce
+selection-foreground = #100f0f
+

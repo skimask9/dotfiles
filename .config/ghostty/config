@@ -4,7 +4,8 @@ background-blur-radius = 10
 macos-titlebar-style = hidden
 quick-terminal-animation-duration = 0
 # theme = jellybeans
-theme = dark:jellybeans,light:flexoki-light
+# theme = dark:jellybeans,light:flexoki-light
+theme = dark:jellybeans,light:flexoki-mine
 window-height = 36
 window-width = 143
 macos-option-as-alt = true
@@ -15,11 +16,13 @@ command = ~/.config/scripts/ghossty-tmux.sh
 # command = tmux attach || tmux
 
 # font
-font-size = 18
+font-size = 20
+adjust-cell-height = 1
 font-family = JetBrainsMono Nerd Font 
+# alpha-blending = linear
 # font-family = Liga SFMono Nerd Font
 # font-family = MesloLGS Nerd Font Mono
-font-style = Medium
+# font-style = Medium
 # font-family = JetBrainsMono NFM Medium
 # font-thicken = true
 # font-family = Maple Mono NF
@@ -27,6 +30,7 @@ font-style = Medium
 font-feature = "calt"
 font-feature = "clig"
 font-feature = "liga"
+font-feature = "zero"
 font-feature = "ss20"
 font-feature = "cv02"
 font-feature = "cv03"
@@ -39,6 +43,8 @@ font-feature = "cv14"
 font-feature = "cv15"
 font-feature = "cv16"
 font-feature = "cv17"
+font-feature = "cv18"
+font-feature = "cv20"
 
 # keys
 # keybind = global:ctrl+grave_accent=toggle_quick_terminal
