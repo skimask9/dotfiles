@@ -71,6 +71,17 @@ mv ~/.config/nvim ~/.config/nvim.bak
 ```
 Then run Stow again.
 
+### Homebrew
+
+The repository includes `brew-packages.txt` and `brew-casks.txt` files that list all the Homebrew packages and casks I use.
+
+You can install them using the following commands:
+
+```bash
+brew install $(cat brew-packages.txt)
+brew install --cask $(cat brew-casks.txt)
+```
+
 ## Configuration Details
 
 ### AeroSpace
