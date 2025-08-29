@@ -49,12 +49,10 @@ export FZF_CTRL_R_OPTS="
   --header 'Press CTRL-Y to copy command into clipboard'"
 export FZF_DEFAULT_OPTS="
 --layout=reverse
---border=rounded 
---preview-window=border-rounded
+--no-border
+--preview-window=hidden:border-none
 --info=inline
 --height=80%
---multi
---preview-window=:hidden
 --preview 'bat --theme auto:system --theme-dark gruvbox-dark --theme-light gruvbox-light --style=numbers --color=always {}'
 --prompt='∼ ' --pointer='▶' --marker='✓'
 --bind '?:toggle-preview'
@@ -62,10 +60,16 @@ export FZF_DEFAULT_OPTS="
 --bind 'ctrl-y:execute-silent(echo {+} | pbcopy)'
 --bind 'ctrl-e:execute(echo {+} | xargs -o nvim)'
 --bind 'ctrl-v:execute(code {+})'
---color=bg+:#202020,bg:-1,spinner:#ffafaf,hl:#ff8700 \
---color=fg:white,header:#ffaf5f,info:#ff8700,pointer:#ffafaf \
+--color=bg+:-1,bg:-1,spinner:#ffafaf,hl:#ff8700 \
+--color=fg:#dddddd,header:#ffaf5f,info:#ff8700,pointer:#ffafaf \
 --color=marker:#ff5f87,fg+:#c6b6ee,prompt:#ff8700,hl+:#ff8700 \
---color=border:#151515"
+--color=border:-1 \
+--multi"
+# 
+# --color=bg+:#202020,gutter:-1,bg:-1,spinner:#ffafaf,hl:#ff8700 \
+# --color=fg:white,header:#ffaf5f,info:#ff8700,pointer:#ffafaf \
+# --color=marker:#ff5f87,fg+:#c6b6ee,prompt:#ff8700,hl+:#ff8700 \
+# --color=border:#151515"
 # my custom fzf colors
 # --color=bg+:#1c1c1c,bg:#151515,spinner:#a0a8b0,hl:#b39066 \
 # --color=fg:#dddddd,header:#b39066,info:#7a8aa6,pointer:#a0a8b0 \

@@ -16,6 +16,20 @@ This repository contains configurations for the following applications:
 
 It also includes a collection of useful scripts.
 
+## Showcase
+
+### Dark Mode
+
+![Dark Mode Showcase](assets/dark_showcase.png)
+
+![Dark Desktop](assets/dark.png)
+
+### Light Mode
+
+![Light Mode Showcase](assets/light_showcase.png)
+
+![Light Desktop](assets/light.png)
+
 ## Prerequisites
 
 To use these dotfiles, you will need to have the following software installed:
@@ -65,10 +79,12 @@ These dotfiles are managed using [GNU Stow](https://www.gnu.org/software/stow/).
 
 If you have existing configs, Stow might complain.
 You can back them up first:
+
 ```bash
 mv ~/.zshrc ~/.zshrc.bak
 mv ~/.config/nvim ~/.config/nvim.bak
 ```
+
 Then run Stow again.
 
 ### Homebrew

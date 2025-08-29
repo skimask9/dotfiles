@@ -1,0 +1,232 @@
+{
+  // open json editor for settings
+  // "workbench.settings.editor": "json",
+
+  // ui
+  "editor.minimap.enabled": true,
+  "window.commandCenter": false,
+  "editor.scrollbar.verticalScrollbarSize": 10,
+  "editor.scrollbar.horizontalScrollbarSize": 10,
+  "editor.scrollbar.vertical": "visible",
+  "editor.scrollbar.horizontal": "visible",
+  "editor.cursorSmoothCaretAnimation": "on",
+  // Font size
+  "editor.fontSize": 17,
+  // "editor.fontLigatures": true,
+  "terminal.integrated.fontSize": 15,
+  "editor.fontLigatures": "'calt', 'clig', 'liga','ss20', 'cv02', 'cv03', 'cv04', 'cv05', 'cv06', 'cv07', 'cv11', 'cv14', 'cv15', 'cv16', 'cv17'",
+
+  "files.associations": {
+    "**/*.html": "html",
+    "**/templates/**/*.html": "django-html",
+    "**/templates/**/*": "django-txt",
+    "**/requirements{/**,*}.{txt,in}": "pip-requirements"
+  },
+
+  "files.autoSave": "onFocusChange",
+  "python.analysis.autoImportCompletions": true,
+  "python.analysis.completeFunctionParens": true,
+  // "python.languageServer": "Pylance",
+  "python.testing.pytestEnabled": true,
+  "python.analysis.inlayHints.variableTypes": true,
+  "python.analysis.typeCheckingMode": "off",
+  "editor.inlayHints.enabled": "onUnlessPressed",
+  "editor.inlayHints.padding": true,
+  "javascript.inlayHints.enumMemberValues.enabled": true,
+  "javascript.inlayHints.functionLikeReturnTypes.enabled": true,
+  "python.analysis.inlayHints.pytestParameters": true,
+  "python.analysis.inlayHints.functionReturnTypes": true,
+  "python.analysis.autoImportUserSymbols": true,
+  "python.languageServer": "None",
+  "basedpyright.analysis.typeCheckingMode": "basic",
+  "basedpyright.analysis.autoImportCompletions": true,
+  "basedpyright.analysis.diagnosticMode": "openFilesOnly",
+  "basedpyright.disableOrganizeImports": true,
+  "basedpyright.analysis.autoSearchPaths": true,
+  "basedpyright.analysis.useLibraryCodeForTypes": true,
+  "basedpyright.analysis.diagnosticSeverityOverrides": {
+    "reportUnusedImport": false,
+    "reportUnusedVariable": "information",
+    "reportUnusedFunction": "information",
+    "reportGeneralTypeIssues": "none",
+    "reportOptionalMemberAccess": "none",
+    "reportOptionalSubscript": "none",
+    "reportPrivateImportUsage": "none",
+    "reportUnannotatedClassAttribute": "none",
+    "reportAttributeAccessIssue": false
+  },
+
+  "[python]": {
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "charliermarsh.ruff"
+  },
+
+  // "editor.defaultFormatter": "charliermarsh.ruff",
+  // "[python]": {
+  //   "editor.defaultFormatter": "charliermarsh.ruff",
+
+  //   "python.linting.flake8Enabled": false,
+  //   "editor.codeActionsOnSave": {
+  //     "source.organizeImports": "explicit",
+  //     "source.fixAll": "explicit"
+  //   }
+  // },
+
+  "ruff.organizeImports": false,
+  "editor.formatOnSave": true,
+  // "editor.defaultFormatter": "charliermarsh.ruff",
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+
+  "[html]": {
+    "editor.defaultFormatter": "vscode.html-language-features"
+  },
+  "python.createEnvironment.trigger": "prompt",
+  // // "terminal.integrated.fontWeight": "700",
+  // "editor.fontWeight": "700",
+  // Change font
+  "editor.fontFamily": "JetBrainsMono Nerd Font",
+  // "editor.inlayHints.fontFamily": "MonaspiceRn Nerd Font",
+  "scm.inputFontFamily": "JetBrainsMono Nerd Font",
+  "terminal.integrated.fontFamily": "JetBrainsMono Nerd Font",
+  "chat.editor.fontFamily": "JetBrainsMono Nerd Font",
+  "debug.console.fontFamily": "JetBrainsMono Nerd Font",
+  "editor.codeLensFontFamily": "JetBrainsMono Nerd Font",
+  "notebook.output.fontFamily": "JetBrainsMono Nerd Font",
+  "markdown.preview.fontFamily": "JetBrainsMono Nerd Font",
+  // "editor.inlayHints.fontFamily": "JetBrainsMono Nerd Font",
+  // Misc
+  "workbench.startupEditor": "none",
+  "workbench.sideBar.location": "right",
+  "explorer.compactFolders": false,
+  "editor.tabSize": 2,
+  "editor.linkedEditing": true,
+  "breadcrumbs.filePath": "off",
+  "files.trimTrailingWhitespace": true,
+  "[markdown]": {
+    "files.trimTrailingWhitespace": false
+  },
+  // Using the light mode
+  "indentRainbow.indicatorStyle": "light",
+  // we use a simple 1 pixel wide line
+  "indentRainbow.lightIndicatorStyleLineWidth": 1,
+  // the same colors as above but more visible
+  "indentRainbow.colors": [
+    "rgba(255,255,64,0.3)",
+    "rgba(127,255,127,0.3)",
+    "rgba(255,127,255,0.3)",
+    "rgba(79,236,236,0.3)"
+  ],
+  "editor.bracketPairColorization.enabled": true,
+  "editor.guides.bracketPairs": true,
+  "window.zoomLevel": 0,
+  // Toggle excluded files
+  "files.exclude": {
+    "**/.git": false,
+    "**/__pycache__": false,
+    "**/__init__.py": false,
+    "**/.svn": false,
+    "**/.hg": false,
+    "**/CVS": false,
+    "**/.DS_Store": false,
+    "**/Thumbs.db": false,
+    "**/node_modules": false,
+    "**/.next": false,
+    "**/.husky": false,
+    "**/drizzle": false,
+    "**/dist": false,
+    "**/.todo.md": false,
+    "**/.vscode": false,
+    "**/.eslintrc.cjs": false,
+    "**/.editorconfig": false,
+    "**/.gitignore": false,
+    "**/.lintstagedrc.mjs": false,
+    "**/.markdownlint.json": false,
+    "**/.markdownlintignore": false,
+    "**/.prettierignore": false,
+    "**/bun.lockb": false,
+    "**/cspell.json": false,
+    "**/package-lock.json": false,
+    "**/pnpm-lock.yaml": false,
+    "**/next-env.d.ts": false,
+    "**/postcss.config.cjs": false,
+    "**/prettier.config.js": false,
+    "**/README.md": false,
+    "**/readme.md": false,
+    "**/requirements.txt": false,
+    "**/LICENSE.txt": false,
+    "**/.venv": false,
+    "**/next.config.js": false,
+    "**/tailwind.config.ts": false,
+    "**/drizzle.config.ts": false,
+    "**/migrate.ts": false,
+    "**/.env.example": false
+  },
+  "terminal.integrated.profiles.osx": {
+    "bash": {
+      "path": "bash",
+      "args": ["-l"],
+      "icon": "terminal-bash"
+    },
+    "zsh": {
+      "path": "zsh",
+      "args": ["-l"]
+    },
+    "fish": {
+      "path": "fish",
+      "args": ["-l"]
+    },
+    "tmux": {
+      "path": "tmux",
+      "icon": "terminal-tmux"
+    },
+    "pwsh": {
+      "path": "pwsh",
+      "icon": "terminal-powershell"
+    }
+  },
+  // Neovim
+
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "[django-html]": {
+    // "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.quickSuggestions": {
+      "comments": true,
+      "other": true,
+      "strings": true
+    }
+  },
+  "emmet.includeLanguages": {
+    "django-html": "html"
+  },
+  "zenMode.centerLayout": false,
+  "zenMode.restore": false,
+  "editor.rulers": [],
+  "debug.inlineValues": "on",
+  "[html][django-html][handlebars][hbs][mustache][jinja][jinja-html][nj][njk][nunjucks][twig]": {
+    "editor.defaultFormatter": "monosans.djlint"
+  },
+  "djlint.useVenv": true,
+
+  "go.inlayHints.compositeLiteralFields": true,
+  "go.inlayHints.compositeLiteralTypes": true,
+  "go.inlayHints.functionTypeParameters": true,
+  "go.inlayHints.parameterNames": true,
+  "go.inlayHints.rangeVariableTypes": true,
+  "go.inlayHints.constantValues": true,
+  "extensions.experimental.affinity": {
+    "asvetliakov.vscode-neovim": 1
+  },
+  "djlint.showInstallError": false,
+  "workbench.iconTheme": "vscode-great-icons",
+  "window.systemColorTheme": "auto",
+  "window.autoDetectColorScheme": true,
+  "workbench.preferredLightColorTheme": "Flexoki Light Blue",
+  "editor.mouseWheelZoom": true
+}

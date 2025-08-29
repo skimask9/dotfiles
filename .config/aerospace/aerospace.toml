@@ -13,7 +13,7 @@ after-login-command = []
 # 'after-startup-command' is run after 'after-login-command'
 # Available commands : https://nikitabobko.github.io/AeroSpace/commands
 after-startup-command = [
-  'exec-and-forget borders style=round hidpi=off active_color="gradient(top_right=0xff7aa2f7,bottom_left=0xfff7768e)" inactive_color=0xc02c2e34   width=5.0'
+  'exec-and-forget borders style=round hidpi=off active_color="gradient(top_right=0xff7aa2f7,bottom_left=0xfff7768e)" inactive_color=0xc02c2e34   width=2.0'
 ]
 
 exec-on-workspace-change = [
@@ -22,7 +22,7 @@ exec-on-workspace-change = [
     # '~/.config/scripts/pip-move-test2.sh',
 ]
 
-on-focused-monitor-changed = ['exec-and-forget /Users/m4pro/.config/scripts/brave-move2.sh']
+# on-focused-monitor-changed = ['exec-and-forget /Users/m4pro/.config/scripts/brave-move2.sh']
 
 # Start AeroSpace at login
 start-at-login = true
@@ -134,6 +134,12 @@ alt-down = 'focus down --boundaries all-monitors-outer-frame'
 alt-up = 'focus up --boundaries all-monitors-outer-frame'
 alt-right = 'focus right --boundaries all-monitors-outer-frame'
 
+
+alt-shift-h = ['join-with left', 'mode main']
+alt-shift-j = ['join-with down', 'mode main']
+alt-shift-k = ['join-with up', 'mode main']
+alt-shift-l = ['join-with right', 'mode main']
+
 # See: https://nikitabobko.github.io/AeroSpace/comands#move
 alt-shift-left = 'move left'
 alt-shift-down = 'move down'
@@ -168,7 +174,7 @@ alt-shift-6 = 'move-node-to-workspace 6'
 alt-shift-7 = 'move-node-to-workspace 7'
 alt-shift-8 = 'move-node-to-workspace 8'
 alt-shift-9 = 'move-node-to-workspace 9'
-alt-shift-0 = 'move-node-to-workspace 10'
+alt-shift-0 = 'move-node-to-workspace --focus-follows-window 10'
 alt-shift-p = 'move-node-to-workspace mac'
 
 
@@ -204,10 +210,7 @@ r = ['flatten-workspace-tree', 'mode main'] # reset layout
 f = ['layout floating tiling', 'mode main'] # Toggle between floating and tiling layout
 backspace = ['close-all-windows-but-current', 'mode main']
 
-alt-shift-h = ['join-with left', 'mode main']
-alt-shift-j = ['join-with down', 'mode main']
-alt-shift-k = ['join-with up', 'mode main']
-alt-shift-l = ['join-with right', 'mode main']
+
 
 
 
