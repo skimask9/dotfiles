@@ -18,11 +18,11 @@ after-startup-command = [
 
 exec-on-workspace-change = [
     '/bin/bash', '-c',
-    '~/.config/scripts/pip-move.sh',
+    '~/.config/scripts/pip-move3.sh',
     # '~/.config/scripts/pip-move-test2.sh',
 ]
 
-# on-focused-monitor-changed = ['exec-and-forget /Users/m4pro/.config/scripts/brave-move2.sh']
+on-focused-monitor-changed = ['exec-and-forget /Users/m4pro/.config/scripts/brave-move.sh']
 
 # Start AeroSpace at login
 start-at-login = true

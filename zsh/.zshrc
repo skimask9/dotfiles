@@ -5,6 +5,9 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+# Optionally load login settings for non-login interactive shells
+[ -f ~/.zprofile ] && source ~/.zprofile
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 
@@ -23,48 +26,43 @@ DISABLE_AUTO_TITLE="true"
 ENABLE_CORRECTION="true"
 
 # Load secret env variables
-if [ -f "$HOME/.zshrc_env" ]; then
-  source "$HOME/.zshrc_env"
-fi
+# if [ -f "$HOME/.zshrc_env" ]; then
+#   source "$HOME/.zshrc_env"
+# fi
 
 # Ripgrep
 export RIPGREP_CONFIG_PATH=$HOME/.rgrc
 
-# export FZF_CTRL_T_COMMAND
-export FZF_DEFAULT_COMMAND="fd --type file --hidden --follow --strip-cwd-prefix  "
-# export FZF_ALT_C_OPTS=" --preview 'tree -I '__pycache__|node_modules|'"
-# export FZF_ALT_C_OPTS=" --preview 'tree -I \"*.pyc|__pycache__|node_modules\"' "
-show_file_or_dir_preview="if [ -d {} ]; then eza -T --color=always {} | head -200; else bat --theme auto:system --theme-dark gruvbox-dark --theme-light gruvbox-light -n --color=always --line-range :500 {}; fi"
-
-export FZF_CTRL_T_OPTS="--preview '$show_file_or_dir_preview'"
-export FZF_ALT_C_OPTS=" --preview 'tree   -C {} -I \".pyc|__pycache__|node_modules|.venv\" '"
-# export FZF_CTRL_T_OPTS="
-#   --preview 'batcat -n --color=always {}'
-#   --bind 'ctrl-/:change-preview-window(down|hidden|)'"
-export FZF_CTRL_R_OPTS="
-  --preview 'echo {}' --preview-window up:3:hidden:wrap
-  --bind 'ctrl-/:toggle-preview'
-  --bind 'ctrl-y:execute-silent(echo -n {2..} | pbcopy)+abort'
-  --color header:italic
-  --header 'Press CTRL-Y to copy command into clipboard'"
-export FZF_DEFAULT_OPTS="
---layout=reverse
---no-border
---preview-window=hidden:border-none
---info=inline
---height=80%
---preview 'bat --theme auto:system --theme-dark gruvbox-dark --theme-light gruvbox-light --style=numbers --color=always {}'
---prompt='∼ ' --pointer='▶' --marker='✓'
---bind '?:toggle-preview'
---bind 'ctrl-a:select-all'
---bind 'ctrl-y:execute-silent(echo {+} | pbcopy)'
---bind 'ctrl-e:execute(echo {+} | xargs -o nvim)'
---bind 'ctrl-v:execute(code {+})'
---color=bg+:-1,bg:-1,spinner:#ffafaf,hl:#ff8700 \
---color=fg:#dddddd,header:#ffaf5f,info:#ff8700,pointer:#ffafaf \
---color=marker:#ff5f87,fg+:#c6b6ee,prompt:#ff8700,hl+:#ff8700 \
---color=border:-1 \
---multi"
+# export FZF_DEFAULT_COMMAND="fd --type file --hidden --follow --strip-cwd-prefix  "
+# show_file_or_dir_preview="if [ -d {} ]; then eza -T --color=always {} | head -200; else bat --theme auto:system --theme-dark gruvbox-dark --theme-light gruvbox-light -n --color=always --line-range :500 {}; fi"
+#
+# export FZF_CTRL_T_OPTS="--preview '$show_file_or_dir_preview'"
+# export FZF_ALT_C_OPTS=" --preview 'tree   -C {} -I \".pyc|__pycache__|node_modules|.venv\" '"
+# export FZF_CTRL_R_OPTS="
+#   --preview 'echo {}' --preview-window up:3:hidden:wrap
+#   --bind 'ctrl-/:toggle-preview'
+#   --bind 'ctrl-y:execute-silent(echo -n {2..} | pbcopy)+abort'
+#   --color header:italic
+#   --header 'Press CTRL-Y to copy command into clipboard'"
+# export FZF_DEFAULT_OPTS="
+# --layout=reverse
+# --no-border
+# --preview-window=hidden:border-none
+# --info=inline
+# --height=80%
+# --preview 'bat --theme auto:system --theme-dark gruvbox-dark --theme-light gruvbox-light --style=numbers --color=always {}'
+# --prompt='∼ ' --pointer='▶' --marker='✓'
+# --bind '?:toggle-preview'
+# --bind 'ctrl-a:select-all'
+# --bind 'ctrl-y:execute-silent(echo {+} | pbcopy)'
+# --bind 'ctrl-e:execute(echo {+} | xargs -o nvim)'
+# --bind 'ctrl-v:execute(code {+})'
+# --color=bg+:-1,bg:-1,spinner:#ffafaf,hl:#ff8700 \
+# --color=fg:#dddddd,header:#ffaf5f,info:#ff8700,pointer:#ffafaf \
+# --color=marker:#ff5f87,fg+:#c6b6ee,prompt:#ff8700,hl+:#ff8700 \
+# --color=border:-1 \
+# --multi"
+# testing down below
 # 
 # --color=bg+:#202020,gutter:-1,bg:-1,spinner:#ffafaf,hl:#ff8700 \
 # --color=fg:white,header:#ffaf5f,info:#ff8700,pointer:#ffafaf \
@@ -280,12 +278,12 @@ zstyle ':completion:*' menu select
 
 source /opt/homebrew/share/powerlevel10k/powerlevel10k.zsh-theme
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+# export NVM_DIR="$HOME/.nvm"
+# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+#
 
-
-. "$HOME/.local/bin/env"
-eval "$(uv generate-shell-completion zsh)"
-eval "$(uvx --generate-shell-completion zsh)"
-export PATH="$HOME/.local/bin:$PATH"
+# . "$HOME/.local/bin/env"
+# eval "$(uv generate-shell-completion zsh)"
+# eval "$(uvx --generate-shell-completion zsh)"
+# export PATH="$HOME/.local/bin:$PATH"
