@@ -21,11 +21,13 @@ command = ~/.config/scripts/ghossty-tmux.sh
 # command = tmux attach || tmux
 
 # font
-font-size = 17
-# font-thicken = true
+font-family = Maple Mono NF
+font-size = 15
+adjust-cell-height = 15%
+window-padding-balance = true
+## font-size = 17
 # adjust-cell-height = 1
-font-family = JetBrainsMono Nerd Font 
-# alpha-blending = linear
+## font-family = JetBrainsMono Nerd Font 
 # font-family = Liga SFMono Nerd Font
 # font-family = MesloLGS Nerd Font Mono
 font-style = Medium

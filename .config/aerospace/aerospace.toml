@@ -13,17 +13,18 @@ after-login-command = []
 # 'after-startup-command' is run after 'after-login-command'
 # Available commands : https://nikitabobko.github.io/AeroSpace/commands
 after-startup-command = [
-  'exec-and-forget borders style=round hidpi=off active_color="gradient(top_right=0xff7aa2f7,bottom_left=0xfff7768e)" inactive_color=0xc02c2e34   width=2.0'
+  'exec-and-forget borders style=round order=above hidpi=on active_color="gradient(top_right=0xff7aa2f7,bottom_left=0xfff7768e)" inactive_color=0xc02c2e34 background_color=0xff21252b  width=1.0'
 ]
+
+#active_color="gradient(top_right=0xff7aa2f7,bottom_left=0xfff7768e)" inactive_color=0xc02c2e34
 
 exec-on-workspace-change = [
     '/bin/bash', '-c',
     '~/.config/scripts/pip-move3.sh',
-    # '~/.config/scripts/pip-move-test2.sh',
 ]
 
-on-focused-monitor-changed = ['exec-and-forget /Users/m4pro/.config/scripts/brave-move.sh']
-
+on-focused-monitor-changed = ['exec-and-forget ~/.config/scripts/brave-move.sh']
+# 'move-mouse monitor-lazy-center',
 # Start AeroSpace at login
 start-at-login = true
 
@@ -192,15 +193,11 @@ alt-shift-f = 'macos-native-fullscreen'
 cmd-shift-s = 'exec-and-forget screencapture -i -c'
 alt-m = 'macos-native-minimize'
 alt-shift-space = 'layout floating tiling' # 'floating toggle' in i3
+alt-s = 'workspace next --wrap-around'
+alt-shift-s = 'workspace prev --wrap-around'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#workspace-back-and-forth
 alt-d = 'workspace-back-and-forth'
-# See: https://nikitabobko.github.io/AeroSpace/commands#move-workspace-to-monitor
-# alt-shift-tab = 'move-workspace-to-monitor --wrap-around next'
-
-# See: https://nikitabobko.github.io/AeroSpace/commands#mode
-alt-shift-semicolon = 'mode service'
-
 # 'service' binding mode declaration.
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
 [mode.service.binding]
@@ -295,4 +292,3 @@ run = "layout floating"
 [[on-window-detected]]
 if.window-title-regex-substring = '^Picture-in-Picture$'
 run = ['layout floating']
-
