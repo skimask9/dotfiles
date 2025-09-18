@@ -5,6 +5,8 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+
+
 # Optionally load login settings for non-login interactive shells
 [ -f ~/.zprofile ] && source ~/.zprofile
 
@@ -25,68 +27,9 @@ DISABLE_AUTO_TITLE="true"
 # Uncomment the following line to enable command auto-correction.
 ENABLE_CORRECTION="true"
 
-# Load secret env variables
-# if [ -f "$HOME/.zshrc_env" ]; then
-#   source "$HOME/.zshrc_env"
-# fi
-
 # Ripgrep
 export RIPGREP_CONFIG_PATH=$HOME/.rgrc
 
-# export FZF_DEFAULT_COMMAND="fd --type file --hidden --follow --strip-cwd-prefix  "
-# show_file_or_dir_preview="if [ -d {} ]; then eza -T --color=always {} | head -200; else bat --theme auto:system --theme-dark gruvbox-dark --theme-light gruvbox-light -n --color=always --line-range :500 {}; fi"
-#
-# export FZF_CTRL_T_OPTS="--preview '$show_file_or_dir_preview'"
-# export FZF_ALT_C_OPTS=" --preview 'tree   -C {} -I \".pyc|__pycache__|node_modules|.venv\" '"
-# export FZF_CTRL_R_OPTS="
-#   --preview 'echo {}' --preview-window up:3:hidden:wrap
-#   --bind 'ctrl-/:toggle-preview'
-#   --bind 'ctrl-y:execute-silent(echo -n {2..} | pbcopy)+abort'
-#   --color header:italic
-#   --header 'Press CTRL-Y to copy command into clipboard'"
-# export FZF_DEFAULT_OPTS="
-# --layout=reverse
-# --no-border
-# --preview-window=hidden:border-none
-# --info=inline
-# --height=80%
-# --preview 'bat --theme auto:system --theme-dark gruvbox-dark --theme-light gruvbox-light --style=numbers --color=always {}'
-# --prompt='∼ ' --pointer='▶' --marker='✓'
-# --bind '?:toggle-preview'
-# --bind 'ctrl-a:select-all'
-# --bind 'ctrl-y:execute-silent(echo {+} | pbcopy)'
-# --bind 'ctrl-e:execute(echo {+} | xargs -o nvim)'
-# --bind 'ctrl-v:execute(code {+})'
-# --color=bg+:-1,bg:-1,spinner:#ffafaf,hl:#ff8700 \
-# --color=fg:#dddddd,header:#ffaf5f,info:#ff8700,pointer:#ffafaf \
-# --color=marker:#ff5f87,fg+:#c6b6ee,prompt:#ff8700,hl+:#ff8700 \
-# --color=border:-1 \
-# --multi"
-# testing down below
-# 
-# --color=bg+:#202020,gutter:-1,bg:-1,spinner:#ffafaf,hl:#ff8700 \
-# --color=fg:white,header:#ffaf5f,info:#ff8700,pointer:#ffafaf \
-# --color=marker:#ff5f87,fg+:#c6b6ee,prompt:#ff8700,hl+:#ff8700 \
-# --color=border:#151515"
-# my custom fzf colors
-# --color=bg+:#1c1c1c,bg:#151515,spinner:#a0a8b0,hl:#b39066 \
-# --color=fg:#dddddd,header:#b39066,info:#7a8aa6,pointer:#a0a8b0 \
-# --color=marker:#a08070,fg+:#c7c7c7,prompt:#7a8aa6,hl+:#b39066 \
-# --color=border:#151515 \
-# --multi
-# tokyonight
-# --color=fg:#c0caf5,bg:-1,hl:#ff9e64 \
-# --color=fg+:#c0caf5,bg+:#292e42,hl+:#ff9e64,gutter:#292e42 \
-# --color=info:#7aa2f7,prompt:#7dcfff,pointer:#7dcfff \
-# --color=marker:#9ece6a,spinner:#9ece6a,header:#9ece6a
-# --border --color border:-1,preview-border:#c0caf5,preview-bg:-1,preview-fg:#c0caf5"
-# some test
-# --border --color border:#c0caf5,preview-border:#c0caf5,preview-bg:-1,preview-fg:#c0caf5"
-### EVERFOREST MAIN
-# --color fg:#606364,bg:#272e33
-# --color bg+:#8dae88,fg+:#475258,hl:#d4be98,hl+:#26292a,gutter:#404344
-# --color pointer:#404344,prompt:#df736d,info:#606364,spinner:#98C379
-# --border --color border:#222526,preview-border:#282b2c,preview-bg:#222526,preview-fg:#d4be98
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -148,9 +91,9 @@ DISABLE_AUTO_TITLE="true"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git pip z fzf-tab docker zsh-autosuggestions
-    zsh-completions 
-    zsh-history-substring-search 
+plugins=(z fzf-tab docker zsh-autosuggestions
+    zsh-completions
+    zsh-history-substring-search
     zsh-syntax-highlighting)
 
 autoload -U compinit && compinit
@@ -165,9 +108,6 @@ setopt hist_ignore_space
 setopt hist_ignore_all_dups
 setopt hist_save_no_dups
 setopt hist_find_no_dups
-# setopt hist_expire_dups_first
-# setopt hist_ignore_dups
-# setopt hist_verify
 source $ZSH/oh-my-zsh.sh
 
 
@@ -246,27 +186,87 @@ _fzf_comprun() {
   esac
 }
 
+# fd - cd to selected directory
+fd() {
+  local dir
+  dir=$(find ${1:-.} -path '*/\.*' -prune \
+                  -o -type d -print 2> /dev/null | fzf +m) &&
+  cd "$dir"
+}
 
+
+# Pomodoro
+function work () {
+  timer 25m --format 24h -n WORK
+  osascript -e 'display notification "Pomodoro" with title "Work Timer is up! Take a Break 😊" sound name "Crystal"'
+  osascript -e 'say "Work timer is up! Take a break"'
+}
+
+function rest () {
+  timer 10m --format 24h -n REST
+  osascript -e 'display notification "Pomodoro" with title "Break is over! Get back to work 😬" sound name "Crystal"'
+  osascript -e 'say "Break is over. Get back to work"'
+}
+
+function pomodoro () {
+  local work_time=${1:-25m}
+  local rest_time=${2:-5m}
+  local log_dir="$HOME/dotfiles/pomidoro"
+
+  mkdir -p "$log_dir"   # ensure log directory exists
+  local log_file="$log_dir/$(date +%Y-%m-%d).md"
+
+  # Add header only once per day
+  if [ ! -f "$log_file" ]; then
+    echo "# Pomodoro Log - $(date +%Y-%m-%d)" >> "$log_file"
+    echo "" >> "$log_file"
+  fi
+
+  while true; do
+    # --- Work phase ---
+    local start=$(date +"%H:%M:%S")
+    timer "$work_time" --format 24h -n WORK
+    local end=$(date +"%H:%M:%S")
+
+    {
+      echo "## Work Session"
+      echo "- Start: $start"
+      echo "- Duration: $work_time"
+      echo "- End: $end"
+      echo ""
+    } >> "$log_file"
+
+    osascript -e 'display notification "Work Timer is up! Take a Break 😊" with title "Pomodoro"'
+    say "Work timer is up! Take a break"
+
+    # --- Rest phase ---
+    start=$(date +"%H:%M:%S")
+    timer "$rest_time" --format 24h -n REST
+    end=$(date +"%H:%M:%S")
+
+    {
+      echo "## Rest Session"
+      echo "- Start: $start"
+      echo "- Duration: $rest_time"
+      echo "- End: $end"
+      echo ""
+    } >> "$log_file"
+
+    osascript -e 'display notification "Break is over! Get back to work 😬" with title "Pomodoro"'
+    say "Break is over. Get back to work"
+  done
+}
+#killing process
+function fkill() {
+  lsof -i -P -n | fzf -m | awk '{print $2}' | xargs -r kill -9
+}
 
 #fzf-tab
-# disable sort when completing `git checkout`
-# zstyle ':completion:*:git-checkout:*' sort false
-# set descriptions format to enable group support
-# NOTE: don't use escape sequences here, fzf-tab will ignore them
-# zstyle ':completion:*:descriptions' format '[%d]'
-# set list-colors to enable filename colorizing
 zstyle ':fzf-tab:*' fzf-command ftb-tmux-popup
 zstyle ':fzf-tab:complete:cd:*' popup-pad 30 0
 zstyle ':fzf-tab:*' popup-min-size 80 10
 zstyle ':fzf-tab:*' use-fzf-default-opts yes
-# zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
-# zstyle ':fzf-tab:*' fzf-flags $(echo $FZF_DEFAULT_OPTS)
-# force zsh not to show completion menu, which allows fzf-tab to capture the unambiguous prefix
-# zstyle ':completion:*' menu no
-# preview directory's content with eza when completing cd
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -G -G -a -T -1 --color=always $realpath'
-# switch group using `<` and `>`
-# zstyle ':fzf-tab:*' switch-group '<' '>'
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
@@ -277,13 +277,3 @@ zstyle ':completion:*' menu select
 
 
 source /opt/homebrew/share/powerlevel10k/powerlevel10k.zsh-theme
-
-# export NVM_DIR="$HOME/.nvm"
-# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-#
-
-# . "$HOME/.local/bin/env"
-# eval "$(uv generate-shell-completion zsh)"
-# eval "$(uvx --generate-shell-completion zsh)"
-# export PATH="$HOME/.local/bin:$PATH"

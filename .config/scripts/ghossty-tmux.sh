@@ -1,16 +1,12 @@
 #!/bin/bash
 
 TMUX="/opt/homebrew/bin/tmux"
-SESSION_NAME="config"
 
-# Check if the session already exists
-$TMUX has-session -t $SESSION_NAME 2>/dev/null
-
-if [ $? -eq 0 ]; then
-  # If the session exists, reattach to it
-  $TMUX attach-session -t $SESSION_NAME
+# Check if any tmux sessions exist
+if $TMUX list-sessions >/dev/null 2>&1; then
+  # Attach to the last used (default behaviour of tmux attach)
+  exec $TMUX attach-session
 else
-  # If the session doesn't exist, start a new one
-  $TMUX new-session -s $SESSION_NAME -d
-  $TMUX attach-session -t $SESSION_NAME
+  echo "No tmux sessions running. Dropping into normal shell..."
+  exec $SHELL -l
 fi

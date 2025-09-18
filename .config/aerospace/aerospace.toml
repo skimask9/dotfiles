@@ -61,7 +61,9 @@ key-mapping.preset = 'qwerty'
 2 = 'main'
 3 = 1
 4 = 1
-mac = 'built-in'
+M = 'built-in'
+
+
 
 
 # Gaps between windows (inner-*) and between monitor edges (outer-*).
@@ -122,8 +124,8 @@ outer.right = [
 # See: https://nikitabobko.github.io/AeroSpace/commands#exec-and-forget
 alt-shift-enter = 'exec-and-forget open -na WezTerm'
 alt-enter = 'exec-and-forget open -na Ghostty'
-# alt-ctrl-enter = 'exec-and-forget open -na Ghostty --args -e zsh -ic "tmux new -A -s main"'
-# alt-enter = 'exec-and-forget open -na Ghostty --args -e zsh -ic "tmux attach-session -t $(tmux list-sessions -F "#{session_name}" 2>/dev/null | tail -n1)"'
+alt-b = 'exec-and-forget open -na Brave\ Browser'
+alt-t = 'exec-and-forget open -na  Telegram'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#layout
 alt-slash = 'layout tiles horizontal vertical'
@@ -162,7 +164,7 @@ alt-7 = 'workspace 7'
 alt-8 = 'workspace 8'
 alt-9 = 'workspace 9'
 alt-0 = 'workspace 10'
-alt-p = 'workspace mac'
+alt-p = 'workspace M'
 
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#move-node-to-workspace
@@ -176,14 +178,21 @@ alt-shift-7 = 'move-node-to-workspace 7'
 alt-shift-8 = 'move-node-to-workspace 8'
 alt-shift-9 = 'move-node-to-workspace 9'
 alt-shift-0 = 'move-node-to-workspace --focus-follows-window 10'
-alt-shift-p = 'move-node-to-workspace mac'
+alt-shift-p = 'move-node-to-workspace M'
 
 
 alt-shift-d = 'move-workspace-to-monitor right'
 alt-shift-a = 'move-workspace-to-monitor left'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#move-workspace-to-monitor
-alt-shift-tab = 'move-workspace-to-monitor --wrap-around next'
+# alt-shift-tab = 'move-workspace-to-monitor --wrap-around next'
+# alt-shift-tab = ['workspace --wrap-around next'] # next space -- any monitor and occupied or unoccupied
+# alt-ctrl-shift-p = ['workspace --wrap-around prev'] # prev space -- any monitor and occupied or unoccupied
+
+
+# full reset
+alt-shift-r = ['reload-config', 'flatten-workspace-tree']
+alt-shift-semicolon = 'mode service'
 
 
 
@@ -193,11 +202,12 @@ alt-shift-f = 'macos-native-fullscreen'
 cmd-shift-s = 'exec-and-forget screencapture -i -c'
 alt-m = 'macos-native-minimize'
 alt-shift-space = 'layout floating tiling' # 'floating toggle' in i3
-alt-s = 'workspace next --wrap-around'
-alt-shift-s = 'workspace prev --wrap-around'
+
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#workspace-back-and-forth
 alt-d = 'workspace-back-and-forth'
+alt-tab = 'exec-and-forget aerospace list-workspaces --monitor all  --empty no | aerospace workspace --wrap-around next' # next occupied space on current monitor
+alt-shift-tab = 'exec-and-forget aerospace list-workspaces --monitor all  --empty no | aerospace workspace --wrap-around prev' # prev occupied space on current monitor
 # 'service' binding mode declaration.
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
 [mode.service.binding]
