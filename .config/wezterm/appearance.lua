@@ -3,7 +3,7 @@ local fonts = require("lib.fonts")
 
 return {
 	font_size = 20,
-	line_height = 0.9,
+	line_height = 1.3,
 	font = wezterm.font(fonts.jetbrains_styled),
 	-- font = wezterm.font(fonts.fira),
 	-- font = wezterm.font(fonts.sf_mono),

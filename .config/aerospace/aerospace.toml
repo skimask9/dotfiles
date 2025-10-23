@@ -126,6 +126,8 @@ alt-shift-enter = 'exec-and-forget open -na WezTerm'
 alt-enter = 'exec-and-forget open -na Ghostty'
 alt-b = 'exec-and-forget open -na Brave\ Browser'
 alt-t = 'exec-and-forget open -na  Telegram'
+alt-i = 'exec-and-forget open -na  ChatGPT'
+alt-c = 'exec-and-forget open -na  Claude'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#layout
 alt-slash = 'layout tiles horizontal vertical'
@@ -297,6 +299,10 @@ run = "layout floating"
 
 [[on-window-detected]]
 if.app-id = 'com.apple.MobileSMS'
+run = "layout floating"
+
+[[on-window-detected]]
+if.app-id = 'org.telegram.desktop'
 run = "layout floating"
 
 [[on-window-detected]]

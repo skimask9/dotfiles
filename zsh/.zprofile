@@ -34,11 +34,29 @@ export FZF_DEFAULT_OPTS="
 --bind 'ctrl-y:execute-silent(echo {+} | pbcopy)'
 --bind 'ctrl-e:execute(echo {+} | xargs -o nvim)'
 --bind 'ctrl-v:execute(code {+})'
---color=bg+:-1,bg:-1,spinner:#ffafaf,hl:#ff8700 \
---color=fg:#dddddd,header:#ffaf5f,info:#ff8700,pointer:#ffafaf \
---color=marker:#ff5f87,fg+:#c6b6ee,prompt:#ff8700,hl+:#ff8700 \
+--color=bg+:-1,bg:-1,spinner:#7a8aa6,hl:#d8a16c \
+--color=fg:#dddddd,header:#d8a16c,info:#83adc3,pointer:#c88a77 \
+--color=marker:#c88a77,fg+:#c7c7c7,prompt:#83adc3,hl+:#d8a16c \
 --color=border:-1 \
 --multi"
+
+
+
+
+# Jellybeans
+# "--color=bg+:-1,bg:-1,spinner:#ffafaf,hl:#ff8700 \
+# --color=fg:#dddddd,header:#ffaf5f,info:#ff8700,pointer:#ffafaf \
+# --color=marker:#ff5f87,fg+:#c6b6ee,prompt:#ff8700,hl+:#ff8700 \
+# --color=border:-1 \
+# --multi"
+
+# Jellybeans Muted
+# " \
+# --color=bg+:#101010,bg:#101010,spinner:#7a8aa6,hl:#d8a16c \
+# --color=fg:#dddddd,header:#d8a16c,info:#83adc3,pointer:#c88a77 \
+# --color=marker:#c88a77,fg+:#c7c7c7,prompt:#83adc3,hl+:#d8a16c \
+# --color=border:#101010 \
+# --multi"
 
 
 # NVM setup (only at login)

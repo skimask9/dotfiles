@@ -1,59 +1,81 @@
-custom-shader = shaders/cursor_synesthaxia.glsl
+# custom-shader = shaders/cursor_synesthaxia.glsl
+custom-shader = shaders/cursor_smear_fade.glsl
+
+# custom-shader = shaders/crt.glsl
+
+# Shell integration
+shell-integration = zsh
+shell-integration-features = true
+
 # appearance
-# background-opacity = 0.80
+background-opacity = 0.80
 # background-blur = true
 # background-blur-radius = 10
 macos-titlebar-style = hidden
+macos-non-native-fullscreen = true
+
 quick-terminal-animation-duration = 0
 window-padding-x = 1
 window-padding-y = 0
 window-padding-color = extend
 
-theme = dark:jellybeans,light:flexoki-mine
+# theme = dark:jellybeans-muted,light:flexoki-mine
+theme = dark:kanso-zen,light:kanso-pearl-light
+cursor-invert-fg-bg = true
 macos-option-as-alt = true
 mouse-hide-while-typing = true
+mouse-scroll-multiplier = 0.25
 confirm-close-surface = false
 bold-is-bright = true
 command = ~/.config/scripts/ghossty-tmux.sh
 
+# TEST:
+# Fonts
+font-family-italic = "Maple Mono NF"
+font-family-bold-italic = "Maple Mono NF"
+adjust-underline-position = 4
+
+
+
 # font
 # font-family = Maple Mono NF
 # font-size = 15
-adjust-cell-height = 15%
+adjust-cell-height = 35%
 window-padding-balance = true
-font-size = 18
-# adjust-cell-height = 4
-font-family = JetBrainsMono 
+font-size = 15
+font-family = JetBrainsMono Nerd Font
+# font-family = Commit Mono Nerd Font
 # font-family = Liga SFMono Nerd Font
-# font-family = MesloLGS Nerd Font 
-# font-style = Medium
-# font-family = JetBrainsMono NFM Medium
-font-thicken = true
-font-feature = "calt"
-font-feature = "clig"
-font-feature = "liga"
-font-feature = "zero"
-font-feature = "ss20"
-font-feature = "cv02"
-font-feature = "cv03"
-font-feature = "cv04"
-font-feature = "cv05"
-font-feature = "cv06"
-font-feature = "cv07"
-font-feature = "cv11"
-font-feature = "cv14"
-font-feature = "cv15"
-font-feature = "cv16"
-font-feature = "cv17"
-font-feature = "cv18"
-font-feature = "cv20"
+# font-family = MesloLGS Nerd Font
+font-style = Medium
+# font-thicken = true
+font-feature = +calt
+font-feature = +clig
+font-feature = +liga
+font-feature = +zero
+font-feature = +ss01
+font-feature = +ss20
+font-feature = +cv02
+font-feature = +cv03
+font-feature = +cv04
+font-feature = +cv05
+font-feature = +cv06
+font-feature = +cv07
+font-feature = +cv11
+font-feature = +cv14
+font-feature = +cv15
+font-feature = +cv16
+font-feature = +cv17
+font-feature = +cv18
+font-feature = +cv20
 
-# Font features 
+# Font features
 # font-feature = +ss01
 # font-feature = +cv03
 
+
 # Color space and blending for better colors on macOS
-window-colorspace = display-p3
+# window-colorspace = display-p3
 
 
 # keys

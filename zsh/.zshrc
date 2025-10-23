@@ -1,5 +1,5 @@
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
+# Initailization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
@@ -29,6 +29,13 @@ ENABLE_CORRECTION="true"
 
 # Ripgrep
 export RIPGREP_CONFIG_PATH=$HOME/.rgrc
+
+
+# Preferred Python version management tool: uv
+# only-system: Only use system Python (Homebrew), never download managed versions
+# system: Prefer system Python, but fall back to managed versions if needed
+# UV_PYTHON_PREFERENCE=system. This gives you the best of both worlds—it will prefer your Homebrew Python but can still fall back to uv-managed Python if needed for specific versions.
+export UV_PYTHON_PREFERENCE=system
 
 
 # Set list of themes to pick from when loading at random
@@ -91,11 +98,9 @@ DISABLE_AUTO_TITLE="true"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(z fzf-tab docker zsh-autosuggestions
-    zsh-completions
-    zsh-history-substring-search
-    zsh-syntax-highlighting)
+plugins=(z fzf-tab docker zsh-autosuggestions zsh-completions fast-syntax-highlighting)
 
+# zsh-history-substring-search
 autoload -U compinit && compinit
 # bindkey '^[[A' history-search-backward
 # bindkey '^[[B' history-search-forward
@@ -142,7 +147,6 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias ls='eza -G -F --color=always --icons -a'
-# alias ls="exa -G -F --color=always --icons -a"
 alias tree="tree -I '*.pyc|__pycache__|node_modules'"
 alias lsa="eza --icons -a"
 alias rn="./manage.py runserver"
@@ -153,6 +157,7 @@ alias ven="source .venv/bin/activate"
 alias venv='venv_name() { source "$1"/bin/activate; }; venv_name'
 alias lss="eza --color=always --long --git --no-filesize --icons=always  --no-time --no-user --no-permissions"
 alias nv='nvim'
+alias gdf='git difftool --tool=nvimdiff'
 alias anv="NVIM_APPNAME=lazy_nvim nvim"
 alias nvc='nvim --clean'
 # alias pbcopy="xclip -selection clipboard"
@@ -209,54 +214,55 @@ function rest () {
 }
 
 function pomodoro () {
-  local work_time=${1:-25m}
-  local rest_time=${2:-5m}
-  local log_dir="$HOME/dotfiles/pomidoro"
+  # Usage: pomodoro [cycles]
+  # Example: pomodoro 4   → runs 4 work/break cycles
+  #          pomodoro     → runs forever
 
-  mkdir -p "$log_dir"   # ensure log directory exists
-  local log_file="$log_dir/$(date +%Y-%m-%d).md"
+  local max_cycles=$1
+  local count=0
 
-  # Add header only once per day
-  if [ ! -f "$log_file" ]; then
-    echo "# Pomodoro Log - $(date +%Y-%m-%d)" >> "$log_file"
-    echo "" >> "$log_file"
-  fi
+  # Make log directory
+  local log_dir="$HOME/pomodoro"
+  mkdir -p "$log_dir"
 
   while true; do
-    # --- Work phase ---
-    local start=$(date +"%H:%M:%S")
-    timer "$work_time" --format 24h -n WORK
-    local end=$(date +"%H:%M:%S")
+    ((count++))
 
-    {
-      echo "## Work Session"
-      echo "- Start: $start"
-      echo "- Duration: $work_time"
-      echo "- End: $end"
-      echo ""
-    } >> "$log_file"
+    local start_time=$(date +"%H:%M:%S")
+    local date=$(date +"%Y-%m-%d")
 
+    # Work phase
+    timer 25m --format 24h -n WORK
     osascript -e 'display notification "Work Timer is up! Take a Break 😊" with title "Pomodoro"'
     say "Work timer is up! Take a break"
 
-    # --- Rest phase ---
-    start=$(date +"%H:%M:%S")
-    timer "$rest_time" --format 24h -n REST
-    end=$(date +"%H:%M:%S")
+    local work_end=$(date +"%H:%M:%S")
 
-    {
-      echo "## Rest Session"
-      echo "- Start: $start"
-      echo "- Duration: $rest_time"
-      echo "- End: $end"
-      echo ""
-    } >> "$log_file"
-
+    # Rest phase
+    timer 5m --format 24h -n REST
     osascript -e 'display notification "Break is over! Get back to work 😬" with title "Pomodoro"'
     say "Break is over. Get back to work"
+
+    local rest_end=$(date +"%H:%M:%S")
+
+    # Log into daily file
+    local log_file="$log_dir/$date.md"
+    {
+      echo "## Cycle $count"
+      echo "- Start: $start_time"
+      echo "- Work ended: $work_end"
+      echo "- Break ended: $rest_end"
+      echo
+    } >> "$log_file"
+
+    # Stop if max cycles reached
+    if [[ -n "$max_cycles" && $count -ge $max_cycles ]]; then
+      echo "✅ Completed $count pomodoro cycles"
+      break
+    fi
   done
 }
-#killing process
+#killing process (ports) using fzf
 function fkill() {
   lsof -i -P -n | fzf -m | awk '{print $2}' | xargs -r kill -9
 }
@@ -268,12 +274,12 @@ zstyle ':fzf-tab:*' popup-min-size 80 10
 zstyle ':fzf-tab:*' use-fzf-default-opts yes
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -G -G -a -T -1 --color=always $realpath'
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 # [ -f ~/.fzf.zsh ] && ssource <(fzf --zsh)ource ~/.fzf.zsh
 source <(fzf --zsh)
 # autoload -Uz compinit
 zstyle ':completion:*' menu select
 
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 source /opt/homebrew/share/powerlevel10k/powerlevel10k.zsh-theme
