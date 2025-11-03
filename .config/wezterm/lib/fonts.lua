@@ -5,6 +5,11 @@ return {
 		family = "Cascadia Code",
 		weight = "Regular",
 	},
+	xProto = {
+		family = "0xProto Nerd Font",
+		-- weight = "Medium",
+		harfbuzz_features = { "zero", "ss01", "cv05" },
+	},
 
 	maple_mono = {
 		family = "Maple Mono NF",

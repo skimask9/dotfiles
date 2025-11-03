@@ -1,22 +1,26 @@
 # custom-shader = shaders/cursor_synesthaxia.glsl
-custom-shader = shaders/cursor_smear_fade.glsl
+# NOTE: RIGHT NOW --  custom-shader = shaders/cursor_smear_fade.glsl
 
-# custom-shader = shaders/crt.glsl
+
+
+# custom-shader = shaders/ghostty-cursor-shaders/cursor_warp.glsl
+# custom-shader = shaders/ghostty-cursor-shaders/ripple_cursor.glsl
 
 # Shell integration
 shell-integration = zsh
 shell-integration-features = true
 
 # appearance
-background-opacity = 0.80
-# background-blur = true
+# background-opacity = 0.85
+background-blur = true
+background-opacity = 0.90
 # background-blur-radius = 10
 macos-titlebar-style = hidden
 macos-non-native-fullscreen = true
 
 quick-terminal-animation-duration = 0
-window-padding-x = 1
-window-padding-y = 0
+# window-padding-x = 1
+# window-padding-y = 0
 window-padding-color = extend
 
 # theme = dark:jellybeans-muted,light:flexoki-mine
@@ -29,45 +33,124 @@ confirm-close-surface = false
 bold-is-bright = true
 command = ~/.config/scripts/ghossty-tmux.sh
 
-# TEST:
-# Fonts
+# --- Font setup ---
+font-family = "CommitMono Nerd Font"
+# font-family = "JetBrainsMono Nerd Font"
+# font-style = Medium
 font-family-italic = "Maple Mono NF"
+font-family-bold = "CommitMono Nerd Font Bold"
 font-family-bold-italic = "Maple Mono NF"
-adjust-underline-position = 4
 
 
+#TEST: (my option) Adjust underline a little lower for better look
+# adjust-underline-position = 4
 
-# font
-# font-family = Maple Mono NF
-# font-size = 15
-adjust-cell-height = 35%
-window-padding-balance = true
+# --- Font features ---
+# Enable ligatures and stylistic options for CommitMono
+font-feature = calt, liga, dlig, zero, ss01, ss20
+
+# Enable Maple Mono's distinctive stylistic sets and variants
+font-feature = ss01, ss02, ss03, ss04, zero, calt, liga, dlig, cv01, cv02, cv03
+
+# --- Optional ---
 font-size = 15
-font-family = JetBrainsMono Nerd Font
-# font-family = Commit Mono Nerd Font
-# font-family = Liga SFMono Nerd Font
-# font-family = MesloLGS Nerd Font
-font-style = Medium
+font-thicken = true
+font-thicken-strength = 50
+
+# === Visual Tuning ===
+# Adds comfortable vertical spacing between lines
+adjust-cell-height = 45%
+
+
+# Keeps window padding evenly distributed (centered grid)
+window-padding-balance = true
+
+# Adds clean visual breathing room around terminal content
+window-padding-x = 4
+window-padding-y = 0
+
+# Optional — fine-tune underline offset if your font sits low
+adjust-underline-position = 3
+
+
+
+
+
+
+# NOTE: main italic font for now
+# Fonts
+# font-family-italic = "Maple Mono NF"
+# font-family-bold-italic = "Maple Mono NF"
+# adjust-underline-position = 4
+
+
+# TEST:
+# Alternative: JetBrains Mono
+# font-size = 15
+# font-family = Jetbrains Mono
+# font-feature = "calt"
+# font-feature = "clig"
+# font-feature = "liga"
+# font-feature = "ss20"
+# font-feature = "cv02"
+# font-feature = "cv03"
+# font-feature = "cv04"
+# font-feature = "cv05"
+# font-feature = "cv06"
+# font-feature = "cv07"
+# font-feature = "cv11"
+# font-feature = "cv14"
+# font-feature = "cv15"
+# font-feature = "cv16"
+# font-feature = "cv17"
+
+
+
+
+
+
+
+
+
+
+
+# NOTE: main font settings
+# font
+# adjust-cell-height = 45%
+# window-padding-balance = true
 # font-thicken = true
-font-feature = +calt
-font-feature = +clig
-font-feature = +liga
-font-feature = +zero
-font-feature = +ss01
-font-feature = +ss20
-font-feature = +cv02
-font-feature = +cv03
-font-feature = +cv04
-font-feature = +cv05
-font-feature = +cv06
-font-feature = +cv07
-font-feature = +cv11
-font-feature = +cv14
-font-feature = +cv15
-font-feature = +cv16
-font-feature = +cv17
-font-feature = +cv18
-font-feature = +cv20
+# font-thicken-strength = 50
+# font-size = 15
+# font-family = "CommitMono Nerd Font"
+# font-feature = calt, liga, dlig, zero, ss01, ss20
+# font-family = "JetBrainsMono Nerd Font"
+# font-family = "CommitMono Nerd Font"
+# font-family = "0xProto Nerd Font"
+# font-style = Medium
+# font-feature = +calt
+# font-feature = +clig
+# font-feature = +liga
+# font-feature = +zero
+# font-feature = +ss01
+# font-feature = +ss20
+# font-feature = +cv02
+# font-feature = +cv03
+# font-feature = +cv04
+# font-feature = +cv05
+# font-feature = +cv06
+# font-feature = +cv07
+# font-feature = +cv11
+# font-feature = +cv14
+# font-feature = +cv15
+# font-feature = +cv16
+# font-feature = +cv17
+# font-feature = +cv18
+# font-feature = +cv20
+
+
+# font-feature = ss01, cv05 
+
+
 
 # Font features
 # font-feature = +ss01
